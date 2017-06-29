@@ -1,4 +1,7 @@
-package ru.vladmatyunin;
+package ru.vladmatyunin.chat;
+
+import ru.vladmatyunin.client.ChatListener;
+import ru.vladmatyunin.client.Client;
 
 import java.util.HashSet;
 import java.util.Random;
@@ -29,6 +32,10 @@ public class Chat implements ClientListener{
 
     @Override
     public void onCommandSent() {
+        //TODO: send command
+    }
 
+    public Long getChatId() {
+        return chatId;
     }
 }

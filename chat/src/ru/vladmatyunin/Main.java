@@ -1,5 +1,7 @@
 package ru.vladmatyunin;
 
+import ru.vladmatyunin.client.UnauthorizedClient;
+
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;

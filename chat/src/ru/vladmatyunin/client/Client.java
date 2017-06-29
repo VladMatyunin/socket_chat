@@ -1,4 +1,6 @@
-package ru.vladmatyunin;
+package ru.vladmatyunin.client;
+
+import ru.vladmatyunin.chat.ClientListener;
 
 import java.io.IOException;
 import java.net.Socket;
@@ -35,6 +37,6 @@ public class Client extends Thread implements ChatListener {
 
     @Override
     public void onMessageReceived(String message) {
-
+        // TODO: write to socket the message
     }
 }

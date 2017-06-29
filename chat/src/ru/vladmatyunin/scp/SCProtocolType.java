@@ -1,4 +1,4 @@
-package ru.vladmatyunin;
+package ru.vladmatyunin.scp;
 
 /**
  * Created by Vlad on 23.06.2017.
