@@ -12,6 +12,16 @@ public class SCProtocol {
     private Message message;
     private Command command;
 
+    public SCProtocol(SCProtocolType type, Message message) {
+        this.type = type;
+        this.message = message;
+    }
+
+    public SCProtocol(SCProtocolType type, Command command) {
+        this.type = type;
+        this.command = command;
+    }
+
     void setCommand(Command command) {
         this.command = command;
     }

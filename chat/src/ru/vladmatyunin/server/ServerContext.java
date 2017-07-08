@@ -61,11 +61,27 @@ public class ServerContext {
     public static void joinChat(Long chatId, Client client){
         chats.get(chatId).setClient(client);
     }
+
+    /**
+     *
+     * @param aclass - the class of service needed
+     * @return needed service
+     */
     public static ServerService lookUpService(Class aclass){
         return services.get(aclass);
     }
+
+    /**
+     *
+     * @param name - the name of service (see impl. of service needed)
+     * @return the service with such name, returns null if not found
+     */
     public static ServerService lookUpService(String name){
+        for (ServerService service: services.values()) {
+         if (service.getName().equals(name))
+             return service;
+        }
+
         return null;
-        //TODO: findByName
     }
 }

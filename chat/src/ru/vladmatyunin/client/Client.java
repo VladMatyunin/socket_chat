@@ -1,6 +1,7 @@
 package ru.vladmatyunin.client;
 
 import ru.vladmatyunin.chat.ClientListener;
+import ru.vladmatyunin.entity.User;
 
 import java.io.IOException;
 import java.net.Socket;
@@ -11,14 +12,15 @@ import java.net.Socket;
 public class Client extends Thread implements ChatListener {
     private ClientListener listener;
     private Socket socket;
+    private User user;
     public void setListener(ClientListener l){
         listener = l;
     }
-    public Client(Socket socket){
+    public Client(Socket socket, User user){
         this.socket = socket;
     }
-    public Client(Socket socket, ClientListener listener){
-        this(socket);
+    public Client(Socket socket,User user, ClientListener listener){
+        this(socket,user);
         this.listener = listener;
     }
 

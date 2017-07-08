@@ -16,7 +16,7 @@ public class Message {
 
     private Message(){}
 
-    class MessageBuilder{
+    public static class MessageBuilder{
         private Message message;
         public MessageBuilder(){
             message = new Message();
@@ -26,7 +26,7 @@ public class Message {
             return this;
         }
         public MessageBuilder dateSent(Date date){
-            dateSent = date;
+            message.dateSent = date;
             return this;
 
         }
