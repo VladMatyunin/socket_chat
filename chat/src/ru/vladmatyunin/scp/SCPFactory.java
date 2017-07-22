@@ -1,12 +1,16 @@
 package ru.vladmatyunin.scp;
 
+import ru.vladmatyunin.entity.Credentials;
 import ru.vladmatyunin.entity.Message;
 import ru.vladmatyunin.scp.exceptions.ScpParseException;
+import ru.vladmatyunin.server.ServerContext;
+import ru.vladmatyunin.server.user.UserService;
 
 import java.util.Date;
 
 /**
  * Factory to convert income String to SCP (Socket Chat Protocol) Protocol
+ *
  * @see SCProtocol
  */
 public class SCPFactory {
@@ -25,14 +29,19 @@ public class SCPFactory {
         //if both command and message
         if (text.startsWith("COMPLEX::")) {
             int messageIndex = text.indexOf("MESSAGE::");
-            SCProtocol command = getSCP(text.substring(9,messageIndex));
-            SCProtocol message = getSCP(text.substring(messageIndex,text.length()));
+            SCProtocol command = getSCP(text.substring(9, messageIndex));
+            SCProtocol message = getSCP(text.substring(messageIndex, text.length()));
         }
         throw new ScpParseException();
     }
 
     //joins command from first protocol message and message from another, helper method
-    private static SCProtocol join(final SCProtocol command, final SCProtocol message){
-        return  new SCProtocol(command.getCommand().get(), message.getMessage().get());
+    private static SCProtocol join(final SCProtocol command, final SCProtocol message) {
+        return new SCProtocol(command.getCommand().get(), message.getMessage().get());
+    }
+
+    public static Credentials getCredentials(SCProtocol protocol) {
+        String[] resultSet = protocol.getMessage().get().getText().split(" ");
+        return new Credentials(resultSet[0], resultSet[1]);
     }
 }
