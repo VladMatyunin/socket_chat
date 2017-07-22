@@ -1,8 +1,9 @@
 package ru.vladmatyunin.scp;
 
 /**
- * Created by Vlad on 23.06.2017.
+ * Protocol Types for easy logic handling
+ * @see SCProtocol
  */
 public enum SCProtocolType {
-    MESSAGE, COMMAND
+    MESSAGE, COMMAND, COMPLEX
 }

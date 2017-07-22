@@ -1,11 +1,12 @@
 package ru.vladmatyunin.scp.exceptions;
 
 /**
- * Created by Vlad on 08.07.2017.
+ * Exception thrown while parsing in Factory
+ * @see ru.vladmatyunin.scp.SCPFactory
  */
 public class ScpParseException extends Exception {
     @Override
     public String getMessage() {
-        return "wrong text content, should start with MESSAGE:: or COMMAND::";
+        return "wrong text content, should start with MESSAGE:: or COMMAND:: (rarely COMPLEX::)";
     }
 }

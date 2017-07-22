@@ -5,20 +5,33 @@ import ru.vladmatyunin.entity.Message;
 import java.util.Optional;
 
 /**
- * Created by Vlad on 23.06.2017.
+ * SCP - Socket Chat Protocol
+ * Protocol to handle messaging between clients
+ *
+ * 3 types of income messages:
+ * 1) Only Message - while chatting to easy and fast message parsing
+ * 2) Only Command - sent command will be checked and then action will be completed
+ * 3) Mixed or Complex - when user sent both message and command, very rarely, but necessary
+ *
  */
 public class SCProtocol {
     public SCProtocolType type;
     private Message message;
     private Command command;
 
-    public SCProtocol(SCProtocolType type, Message message) {
-        this.type = type;
+    public SCProtocol(Message message) {
+        this.type = SCProtocolType.MESSAGE;
         this.message = message;
     }
 
-    public SCProtocol(SCProtocolType type, Command command) {
-        this.type = type;
+    public SCProtocol( Command command) {
+        this.type = SCProtocolType.COMMAND;
+        this.command = command;
+    }
+
+    public SCProtocol(Command command, Message message){
+        this.type = SCProtocolType.COMPLEX;
+        this.message = message;
         this.command = command;
     }
 
