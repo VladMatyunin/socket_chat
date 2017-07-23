@@ -5,5 +5,5 @@ package ru.vladmatyunin.scp;
  * @see SCProtocol
  */
 public enum SCProtocolType {
-    MESSAGE, COMMAND, COMPLEX
+    MESSAGE, COMMAND, COMPLEX, REQUEST
 }
