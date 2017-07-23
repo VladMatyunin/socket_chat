@@ -51,4 +51,18 @@ public class Message {
         return sender;
     }
 
+    /**
+     * Converts Message to String, which will be then sent to other users
+     * @return String in SCP type style
+     */
+    public String getSCPTypeMessage(){
+        StringBuilder builder = new StringBuilder("MESSAGE::");
+        builder.append(" FROM::")
+                .append(sender.toString())
+                .append(" DATE::")
+                .append(dateSent.toString())
+                .append(" TEXT::")
+                .append(text);
+        return builder.toString();
+    }
 }

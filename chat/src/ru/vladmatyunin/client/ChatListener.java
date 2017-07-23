@@ -1,5 +1,10 @@
 package ru.vladmatyunin.client;
 
+import ru.vladmatyunin.entity.Message;
+import ru.vladmatyunin.scp.Command;
+
+import java.io.IOException;
+
 /**
  * @author Vlad Matyunin
  * Interface to connect a Client with other Clients in one chat.
@@ -11,5 +16,11 @@ public interface ChatListener {
      * Needed in order to send received message to other clients
      * @param message - the received message to send
      */
-    void onMessageReceived(String message);
+    void onMessageReceived(Message message) throws IOException;
+
+    /**
+     * Called when command from client received
+     * @param command - the command to send to other users in chat
+     */
+    void onCommandReceived(Command command) throws IOException;
 }

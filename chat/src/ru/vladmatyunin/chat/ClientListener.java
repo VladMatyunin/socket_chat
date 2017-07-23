@@ -1,5 +1,8 @@
 package ru.vladmatyunin.chat;
 
+import ru.vladmatyunin.entity.Message;
+import ru.vladmatyunin.scp.Command;
+
 /**
  * @author Vlad Matyunin
  *
@@ -14,13 +17,13 @@ public interface ClientListener {
     /**
      * Method to be called, when client sends a message, so that all other
      * users get the message
-     * @param message - the String message from user(Client)
+     * @param message - the Message from user(Client)
      *                @see ru.vladmatyunin.client.Client
      */
-    void onMessageSent(String message);
+    void onMessageSent(Message message);
 
     /**
      * Called when client sends a command
      */
-    void onCommandSent();
+    void onCommandSent(Command command);
 }
